@@ -4,20 +4,26 @@
 /@example .maths.fact[12]
 .maths.fact:{prd "f"$1_til x+1};
 
+/@desc integer power funcion
+/@example .maths.power[2;10]
+.maths.power:{prd "f"$y#x};
+
 /@desc poisson function, returns the Poisson distribution
 /@example .maths.poisson[10;10;0b]
 .maths.poisson:{[mean;x;cumulative]
-  poisson:{[mean;x]((exp neg mean) * mean xexp x)%.maths.fact x};
+  poisson:{[mean;x](exp[neg mean] * .maths.power[mean;x])%.maths.fact x};
   :$[cumulative;sum(poisson[mean;]each til x+1);poisson[mean;x]];
  };
+
 
 /@desc combin(number,number_chosen), returns the number of combinations for a given number of items
 /.maths.combin[100;2]
 .maths.combin:{[n;k]t:(n-k)_1+til n;r:1f;l,:((i:count t)-count l:reverse -1_2+til k)#1;do[i;r:r*t[i-1]%l[i-1];i-:1];r};
 
 /@desc binomdist(number_s,trials,probability_s,cumulative), returns the individual term binomial distribution probability
+/@example .maths.binomidist[10;100;0.5;1b]
 .maths.binomidist:{[x;n;p;cumulative] 
-  binomdist:{[n;p;x].maths.combin[n;x]*(p xexp x)*(1-p) xexp n-x};
+  binomdist:{[n;p;x].maths.combin[n;x]*.maths.power[p;x]*.maths.power[1-p;n-x]};
   :$[cumulative;sum(binomdist[n;p;]each til x+1);binomdist[n;p;x]];
  };
 
