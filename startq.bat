@@ -1,2 +1,2 @@
 set QHOME=c:\q
-c:\q\w32\q.exe -p 12345
+%QHOME%\w32\q -p 12345
