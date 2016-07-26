@@ -79,7 +79,7 @@
     a:b:1b;
     asl:()!();
     while[a;
-     r:.dtm.geomDTM[`space`servers`arr`serv`abn`t`T`tsf`exhaustive`state!(y`space;s;y`arrival;y`service;y`abandoment;60;300;y`tsf;y`exhaustive;last x)];
+     r:.dtm.geomDTM[`space`servers`arr`serv`abn`t`T`tsf`exhaustive`state!(y`space;s;y`arrival;y`service;y`abandoment;60;30;y`tsf;y`exhaustive;last x)];
      asl:asl,(enlist s)!(enlist avg r[`sl]);
      if[not b;a:0b];
      m:2+max -1,where y[`sla]>=sums avg r[`sl_states];
