@@ -7,6 +7,7 @@
 /@desc queueing model simulation based on discrete event simulation library
 / init function 
 .queue.init:{[]
+  show "initializing queueing simulation library..."; 
   .queue.server:0N;
   .queue.status:([]id:0Nj;t:0n;event:`g#enlist `;queue:0;serv_idle:0);
  };
@@ -80,4 +81,15 @@
    :flip `at`st!flip res@where not res[;0]=0f;               /return as table
  };
 
+.queue.runSim:{[t]
+  res:raze{[t;r]
+   show "simulation run ",string r;
+  .des.init[];
+  .queue.init[];
+  .queue.run[`servers`rates`interval!(((t`servers);.queue.simInterval*til count t);flip(.queue.simInterval*t`arrival`service);.queue.simInterval)];
+   :update r from .queue.status;
+  }[t]each til .queue.runTimes;
+  :res;
+ };
+  
 

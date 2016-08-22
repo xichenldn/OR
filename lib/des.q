@@ -38,6 +38,7 @@
  };       
 
 .des.init:{
+  show "initializing discrete evenet simulation library..."; 
   .des.id:0j;                                                             / iterator for unique job ids
   .des.jobs:([]id:();typ:`g#();start:();f:();args:());                       / table to contain jobs
   .des.status:([]id:();jobstart:0#0Np;jobend:0#0Np;f:();args:();status:();return:()); / track status of jobs
