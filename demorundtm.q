@@ -5,7 +5,7 @@ system"l lib/dtm.q";
 .dtm.datapath:`$"data/";
 .dtm.t:60;
 .dtm.T:60;
-.dtm.persistData:{(hsym[`$(string[.dtm.datapath],y,"/")];17;2;6) set x};
+.dtm.persistData:{hsym[`$(string[.dtm.datapath],y,"/")] set x};
 /t:([]arrival:0.6 0.2 0.7 0.8;service:0.2 0.2 0.2 0.2;space:100;exhaustive:0b;tsf:0;sla:0.8);
 t:([]arrival:0.2 0.2 0.5 0.6 0.7 0.8 0.9 0.4 0.5 0.2 0.4 0.5 0.6 0.6 0.3 0.2;service:16#0.2;space:100;exhaustive:0b;tsf:0;sla:0.8);
 show "input table as...";
