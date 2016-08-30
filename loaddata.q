@@ -1,2 +1,2 @@
-.dtm.datapath:`$"data/";
-system"l ",string .dtm.datapath;
+.dtm.datapath:` sv hsym[`$"/"sv "\\"vs (-1_raze system"echo %CD%")],`data;
+system"l ",1_string .dtm.datapath;
